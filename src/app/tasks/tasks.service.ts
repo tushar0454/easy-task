@@ -32,10 +32,10 @@ export class TasksService {
     },
   ];
 
-  constructor(){
+  constructor() {
     const tasks = localStorage.getItem('tasks');
 
-    if(tasks) {
+    if (tasks) {
       this.tasks = JSON.parse(tasks);
     }
   }
@@ -51,7 +51,7 @@ export class TasksService {
       title: taskData.title,
       summary: taskData.summary,
       dueDate: taskData.dueDate,
-    }),this.saveTasks();
+    }), this.saveTasks();
   }
 
   removeTask(id: string) {
@@ -59,7 +59,7 @@ export class TasksService {
     this.saveTasks();
   }
 
-  private saveTasks(){
+  private saveTasks() {
     localStorage.setItem('tasks', JSON.stringify(this.tasks))
   }
 }
