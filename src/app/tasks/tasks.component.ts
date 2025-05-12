@@ -22,26 +22,11 @@ export class TasksComponent {
     return this.tasksService.getUserTasks(this.userId);
   }
 
-  onCompleteTasks(taskId: string) {
-    this.tasks = this.tasks.filter((task) => task.id !== taskId);
-  }
-
   onAddTask() {
     this.isAddingTask = true;
   }
 
   onCloseTask() {
-    this.isAddingTask = false;
-  }
-
-  onAddingTask(taskData: NewTaskData) {
-    this.tasks.push({
-      id: new Date().getTime().toString(),
-      userId: this.userId,
-      title: taskData.title,
-      summary: taskData.summary,
-      dueDate: taskData.dueDate,
-    });
     this.isAddingTask = false;
   }
 }
